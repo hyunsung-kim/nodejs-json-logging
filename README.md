@@ -17,8 +17,8 @@
 ### winston :
 “A multi-transport async logging library for Node.js.”
 
-- 장점: multiple transport를 지원하는 라이브러이다. 
-- 단점: json logging 구조화 작업에서는 불편함. 용량이 가장 큼
+> 장점: multiple transport를 지원하는 라이브러이다. 
+> 단점: json logging 구조화 작업에서는 불편함. 용량이 가장 큼
 
 
 - Install
@@ -83,11 +83,11 @@ $ node winstonTest.js
 ### bunyan
 Bunyan is a simple and fast JSON logging library for node.js services
 
-장점: 로깅 구조화가 쉽다. child 함수를 통하여 코드 중복을 제거하기 쉽다.
-단점: 초기 사용자에게 불편하다.
+> 장점: 로깅 구조화가 쉽다. child 함수를 통하여 코드 중복을 제거하기 쉽다.
+> 단점: 초기 사용자에게 불편하다.
 
-> 여기서 `child` 라는 함수가 중요하다. middleware에서 공통적인 정보를 로깅에 추가하고 해당 엔드포인트에서 실제 로깅을 하는 것이 가능하므로 
-> 코드 중복을 피할 수 있다.
+여기서 `child` 라는 함수가 중요하다. middleware에서 공통적인 정보를 로깅에 추가하고 해당 엔드포인트에서 실제 로깅을 하는 것이 가능하므로 
+코드 중복을 피할 수 있다.
 
 - Configuration
 ```
@@ -119,8 +119,8 @@ $ node bunyanTest.js
 
 근래 많은 사람들이 사용할만하다. 모듈이 경량화 되어 있고, 사용법은 bunyan처럼 간단하다.
 
-장점: 경량화, 사용성이 좋음.
-단점: 매번 모듈을 초기화해야하는 것으로 보임(?)
+> 장점: 경량화, 사용성이 좋음.
+> 단점: 매번 모듈을 초기화해야하는 것으로 보임(?)
 
 ```
 const logger = require('pino')()
@@ -146,6 +146,9 @@ app.get('/', (req, res) => {
 ### morgan
 "HTTP request logger middleware for node.js" 라고 해당 모듈을 소개한다.
 그래서 `Express`에서는 주로 morgan과 winston을 함께 사용한다. morgan은 http 요청과 응답을 규칙적으로 로깅하기 위하여 사용한다.
+
+> 단점: 너무 무겁다.
+> 장점: http request에 특화되어 있다.
 
 - Configuration
 ```
