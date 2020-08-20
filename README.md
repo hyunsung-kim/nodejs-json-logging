@@ -8,11 +8,13 @@
 - Individual Request Handling Time: 하나의 리쿼스트를 처리하는데 소용되는 시간
 - Average Total Request Handling Time: 예를 들어 100,000 만개의 처리를 하는데 드는 시간
 
----
+<br>
 
 ## Getting Started
 해당 repo에서 소개하는 로깅 모듈은 위의 기준을 어느 정도 만족시키는 4가지를 소개하고자 한다. <br>
 그리고 각 모듈의 장단점을 설명하므로 node에서 logging 모듈을 선택할때 도움을 주려고 한다.
+
+<br>
 
 ### winston :
 “A multi-transport async logging library for Node.js.”
@@ -80,6 +82,8 @@ $ node winstonTest.js
 {"logger":"application-logger","level":"info","service":"civet","message":"Listen to 3000 port","time":"2020-08-20T05:14:09.783Z","meta":{"tenant":"","project":"","email":""}}
 ```
 
+<br>
+
 ### bunyan
 Bunyan is a simple and fast JSON logging library for node.js services
 
@@ -115,6 +119,8 @@ $ node bunyanTest.js
 {"name":"myapp","hostname":"superb-aiui-MacBook-Pro.local","pid":60260,"level":30,"req":{"method":"GET","url":"/","headers":{"host":"localhost:3000","user-agent":"curl/7.64.1","accept":"*/*"}},"context":{"tenant":"s2s2","project":"hello"},"msg":"","time":"2020-08-20T05:47:29.278Z","v":0}
 ```
 
+<br>
+
 ### pino
 
 근래 많은 사람들이 사용할만하다. 모듈이 경량화 되어 있고, 사용법은 bunyan처럼 간단하다.
@@ -142,6 +148,7 @@ app.get('/', (req, res) => {
     res.send(service.helloWorld())
 })
 ```
+<br>
 
 ### morgan
 "HTTP request logger middleware for node.js" 라고 해당 모듈을 소개한다.
