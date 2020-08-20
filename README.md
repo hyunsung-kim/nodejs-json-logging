@@ -2,7 +2,8 @@
     <img src="benchmark.png" width="1200">
 </p>
 
-## Benchmark Metric :matrix:
+## Benchmark Metric :smile:
+아래에는 로깅 라이브러리를 평가할 때 사용할 수 있는 평가 기준을 나열한 것이다.
 - Drop Rate: 로그가 전달하는 과정 가운데 손실되는 비율
 - Individual Request Handling Time: 하나의 리쿼스트를 처리하는데 소용되는 시간
 - Average Total Request Handling Time: 예를 들어 100,000 만개의 처리를 하는데 드는 시간
@@ -10,14 +11,15 @@
 ---
 
 ## Getting Started
-여기서부터는 각 로깅 모듈을 사용해 보고 해당 장단점을 나열하겠다.
-
+해당 repo에서 소개하는 로깅 모듈은 위의 기준을 어느 정도 만족시키는 4가지를 소개하고자 한다. <br>
+그리고 각 모듈의 장단점을 설명하므로 node에서 logging 모듈을 선택할때 도움을 주려고 한다.
 
 ### winston :
 “A multi-transport async logging library for Node.js.”
 
-설명에서 보는 것과 같이 비동기적으로 multiple transport를 지원하는 라이브러이다. <br>
-multiple transport애는 장점이 있지만, json logging 구조화 작업에서는 불편하다.
+- 장점: multiple transport를 지원하는 라이브러이다. 
+- 단점: json logging 구조화 작업에서는 불편함. 용량이 가장 큼
+
 
 - Install
 ```
@@ -81,8 +83,11 @@ $ node winstonTest.js
 ### bunyan
 Bunyan is a simple and fast JSON logging library for node.js services
 
-여기서 `child` 라는 함수가 중요하다. middleware에서 공통적인 정보를 로깅에 추가하고 해당 엔드포인트에서 실제 로깅을 하는 것이 가능하므로 <br>
-코드 중복을 피할 수 있다.
+장점: 로깅 구조화가 쉽다. child 함수를 통하여 코드 중복을 제거하기 쉽다.
+단점: 초기 사용자에게 불편하다.
+
+> 여기서 `child` 라는 함수가 중요하다. middleware에서 공통적인 정보를 로깅에 추가하고 해당 엔드포인트에서 실제 로깅을 하는 것이 가능하므로 
+> 코드 중복을 피할 수 있다.
 
 - Configuration
 ```
@@ -113,6 +118,10 @@ $ node bunyanTest.js
 ### pino
 
 근래 많은 사람들이 사용할만하다. 모듈이 경량화 되어 있고, 사용법은 bunyan처럼 간단하다.
+
+장점: 경량화, 사용성이 좋음.
+단점: 매번 모듈을 초기화해야하는 것으로 보임(?)
+
 ```
 const logger = require('pino')()
 
@@ -135,7 +144,8 @@ app.get('/', (req, res) => {
 ```
 
 ### morgan
-`Express`에서 morgan과 winston을 함께 사용한다. morgan은 http 요청과 응답을 규칙적으로 로깅하기 위하여 사용한다.
+"HTTP request logger middleware for node.js" 라고 해당 모듈을 소개한다.
+그래서 `Express`에서는 주로 morgan과 winston을 함께 사용한다. morgan은 http 요청과 응답을 규칙적으로 로깅하기 위하여 사용한다.
 
 - Configuration
 ```
