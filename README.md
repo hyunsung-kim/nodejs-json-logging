@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="benchmark.png" width="500">
+    <img src="benchmark.png" width="800">
 </p>
 
 ## Benchmark Metric :matrix:
