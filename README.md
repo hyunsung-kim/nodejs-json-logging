@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="benchmark.png" width="800">
+    <img src="benchmark.png" width="1200">
 </p>
 
 ## Benchmark Metric :matrix:
@@ -13,7 +13,7 @@
 여기서부터는 각 로깅 모듈을 사용해 보고 해당 장단점을 나열하겠다.
 
 
-### winston
+### winston :
 “A multi-transport async logging library for Node.js.”
 
 설명에서 보는 것과 같이 비동기적으로 multiple transport를 지원하는 라이브러이다. <br>
